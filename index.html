@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikroskop Araştırması - Ege Özçelik</title>
+    <title>Mikroskop Araştırması - Ege Özçelik 9/B</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+        }
+        .slide {
+            display: none;
+            padding: 20px;
             text-align: center;
+        }
+        .slide.active {
+            display: block;
+        }
+        h1, h2, p {
+            margin: 15px 0;
         }
         header {
             background-color: #4CAF50;
@@ -20,12 +30,30 @@
         section {
             margin: 20px;
         }
-        h1, h2, p {
-            margin: 15px 0;
-        }
         img {
             max-width: 100%;
             height: auto;
+        }
+        #slide-container {
+            position: relative;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -36,30 +64,95 @@
     <h2>Hazırlayan: Ege Özçelik, 9/B</h2>
 </header>
 
-<section>
-    <h2>Mikroskop Nedir?</h2>
-    <p>Mikroskop, çok küçük nesneleri büyütmek ve incelemek için kullanılan bir cihazdır.</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Light_microscope.jpg" alt="Mikroskop Resmi">
-</section>
+<div id="slide-container">
+    <!-- Kapak Slaytı -->
+    <section class="slide active">
+        <h1>Mikroskop Araştırması</h1>
+        <h2>Hazırlayan: Ege Özçelik, 9/B</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Light_microscope.jpg" alt="Mikroskop Resmi">
+    </section>
 
-<section>
-    <h2>Mikroskobun Tarihçesi</h2>
-    <p>Mikroskop, ilk kez 1600'lü yıllarda Zacharias Janssen tarafından icat edilmiştir. Modern mikroskoplar ise çok daha gelişmiştir.</p>
-</section>
+    <!-- Giriş Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Nedir?</h2>
+        <p>Mikroskop, gözle görülemeyecek kadar küçük cisimleri incelemek için kullanılan optik bir alettir.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Compound_Microscope.png" alt="Mikroskop">
+    </section>
 
-<section>
-    <h2>Mikroskop Türleri</h2>
-    <p>Optik mikroskoplar ışık kullanarak, elektron mikroskopları ise elektron ışınlarıyla inceleme yapar.</p>
-</section>
+    <!-- Tarihçe Slaytı -->
+    <section class="slide">
+        <h2>Mikroskobun Tarihçesi</h2>
+        <p>İlk mikroskop 1600'lü yıllarda Zacharias Janssen tarafından icat edilmiştir. Antonie van Leeuwenhoek, mikroskobun gelişimine önemli katkılar sağlamıştır.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Antonie_van_Leeuwenhoek_%28cropped%29.jpg" alt="Antonie van Leeuwenhoek">
+    </section>
 
-<section>
-    <h2>Kullanım Alanları</h2>
-    <p>Mikroskoplar biyoloji, tıp, malzeme bilimi gibi birçok alanda kullanılır.</p>
-</section>
+    <!-- Mikroskop Türleri Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Türleri</h2>
+        <p>Optik Mikroskoplar: Işık kullanarak görüntü büyütür.<br>Elektron Mikroskopları: Elektron ışınları ile görüntü oluşturur.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Transmission_Electron_Microscope.jpg" alt="Elektron Mikroskobu">
+    </section>
 
-<footer>
-    <p>Hazırlayan: Ege Özçelik, 9/B</p>
-</footer>
+    <!-- Mikroskop Parçaları Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Parçaları</h2>
+        <p>Oküler, objektif, sahne, ışık kaynağı gibi birçok parçadan oluşur. Her parça büyütme ve netlik için önemlidir.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Optical_microscope_labeled.jpg" alt="Mikroskop Parçaları">
+    </section>
+
+    <!-- Kullanım Alanları Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Kullanım Alanları</h2>
+        <p>Biyoloji, tıp, malzeme bilimi gibi birçok bilim dalında mikroskoplar yaygın olarak kullanılır.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Scientist_using_a_modern_light_microscope_%28cropped%29.jpg" alt="Biyoloji Laboratuvarı">
+    </section>
+
+    <!-- Sonuç Slaytı -->
+    <section class="slide">
+        <h2>Sonuç</h2>
+        <p>Mikroskoplar, bilim dünyasında önemli bir yere sahiptir ve birçok keşfin yapılmasına olanak sağlar.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Microscope_lab.jpg" alt="Bilim Laboratuvarı">
+    </section>
+
+    <!-- Teşekkür Slaytı -->
+    <section class="slide">
+        <h2>Teşekkür Ederim!</h2>
+        <p>Hazırlayan: Ege Özçelik, 9/B</p>
+    </section>
+</div>
+
+<div class="nav-buttons">
+    <button id="prevBtn">Önceki</button>
+    <button id="nextBtn">Sonraki</button>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    });
+
+    showSlide(currentSlide);
+</script>
 
 </body>
 </html>

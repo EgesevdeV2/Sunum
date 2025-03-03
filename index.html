@@ -1,80 +1,101 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitap Tanıtımı</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            max-width: 800px;
+       max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: #fff;
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        h1, h2 {
-            color: #333;
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
         img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-        .book {
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #333;
-            color: #fff;
+        nav {
             position: fixed;
-            bottom: 0;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             width: 100%;
+        }
+        nav button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        nav button:hover {
+            background-color: #555;
+        }
+        .active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Kitap Tanıtımı</h1>
+        <h1>Dinamik Sayfa Geçişi</h1>
     </header>
-    <section>
-        <div class="book">
-            <h2>Kitap 1: Tarih ve Kültür</h2>
-            <p><strong>Alt Başlık:</strong> Tarihin büyüsünü keşfedin</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Kitap+1" alt="Kitap 1">
-            <p>Bu kitap tarihsel olayların ve kültürlerin anlaşılmasına yönelik kapsamlı bir rehberdir. Özellikle öğrenciler ve araştırmacılar için vazgeçilmezdir.</p>
-        </div>
-        <div class="book">
-            <h2>Kitap 2: Bilim ve Teknoloji</h2>
-            <p><strong>Alt Başlık:</strong> Geleceği şekillendiren buluşlar</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Kitap+2" alt="Kitap 2">
-            <p>Bilim ve teknoloji konularına ilgi duyanlar için yazılmış olan bu kitap, geçmişten günümüze teknolojik ilerlemeleri detaylı bir şekilde ele alır.</p>
-        </div>
-        <div class="book">
-            <h2>Kitap 3: Sanatın Büyüsü</h2>
-            <p><strong>Alt Başlık:</strong> Sanatın derinliklerinde bir yolculuk</p>
-            <img src="https://via.placeholder.com/400x300.png?text=Kitap+3" alt="Kitap 3">
-            <p>Sanatın derinliklerini keşfetmek isteyenler için hazırlanmış bu eser, resim, müzik ve heykel sanatına dair geniş bir perspektif sunar.</p>
-        </div>
+
+    <!-- Sayfalar -->
+    <section id="page1" class="active">
+        <h2>Sayfa 1</h2>
+        <p>Bu, ilk sayfanın içeriğidir. Burada istediğiniz bilgiyi sunabilirsiniz.</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Sayfa+1" alt="Sayfa 1 Görseli">
     </section>
-    <footer>
-        © 2024 - Ege Özçelik
-    </footer>
+
+    <section id="page2">
+        <h2>Sayfa 2</h2>
+        <p>Bu ikinci sayfanın içeriğidir. İçeriği değiştirmek için düzenleyin.</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Sayfa+2" alt="Sayfa 2 Görseli">
+    </section>
+
+    <section id="page3">
+        <h2>Sayfa 3</h2>
+        <p>Bu üçüncü sayfanın içeriğidir. Farklı bilgiler burada yer alabilir.</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Sayfa+3" alt="Sayfa 3 Görseli">
+    </section>
+
+    <!-- Navigasyon Butonları -->
+    <nav>
+        <button onclick="changePage('prev')">Önceki Sayfa</button>
+        <button onclick="changePage('next')">Sonraki Sayfa</button>
+    </nav>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 3; // Sayfa sayısını buradan değiştirebilirsiniz.
+
+        function changePage(direction) {
+            if (direction === 'next' && currentPage < totalPages) {
+                currentPage++;
+            } else if (direction === 'prev' && currentPage > 1) {
+                currentPage--;
+            }
+            updatePage();
+        }
+
+        function updatePage() {
+            // Tüm sayfaları gizle
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => section.classList.remove("active"));
+
+            // Geçerli sayfayı göster
+            const currentSection = document.getElementById("page" + currentPage);
+            currentSection.classList.add("active");
+        }
+    </script>
 </body>
 </html>
